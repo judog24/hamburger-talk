@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article>
+  <h2>{{ .Title }}</h2>
+  <h3>{{ .Date | time.Format ":date_long" }}</h3>
+
+  
+
+{{ .Content }}
+</article>
+{{ end }}

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="posts">
+{{ range where $.Site.RegularPages "Section" "posts" }}
+
+<a class="postLink" href="{{ .RelPermalink }}">
+ <h2>{{ .Title }}</h2>
+ <h3>{{ .Date | time.Format ":date_long" }}</h3>
+</a>
+
+{{ .Content }}
+{{ end }}
+</div>
+{{ end }}

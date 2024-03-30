@@ -1,0 +1,13 @@
+<section class="artwork">
+  <img src="{{ .Get 0 }}"
+    alt="Photograph that I am drawing"
+    srcset="{{ .Get 0 }} 320w,
+      {{ .Get 1 }} 640w"
+    sizes="(max-width: 640px) 320px, 50vw">
+
+  <img src="{{ .Get 2 }}"
+    alt="Photograph that I am drawing"
+    srcset="{{ .Get 0 }} 320w,
+      {{ .Get 3 }} 640w"
+    sizes="(max-width: 640px) 320px, 50vw">
+</section>

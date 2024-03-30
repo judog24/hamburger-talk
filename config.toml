@@ -1,0 +1,6 @@
+baseURL = 'https://hamburgertalk.com/'
+languageCode = 'en-us'
+title = 'Hamburger Talk'
+theme = 'burger'
+[markup.goldmark.renderer]
+unsafe= true

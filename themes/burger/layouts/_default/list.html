@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="posts">
+{{ range .Pages.ByPublishDate.Reverse }}
+<a href="{{ .RelPermalink }}">
+  <section class="artwork">
+    <img src="{{ .RelPermalink }}{{ .Params.photo_mobile }}"
+      alt="Photograph that I am drawing"
+      srcset="{{ .RelPermalink }}{{ .Params.photo_mobile}} 320w,
+        {{ .RelPermalink }}{{ .Params.photo }} 640w"
+      sizes="(max-width: 640px) 320px, 50vw">
+  
+    <img src="{{ .RelPermalink }}{{ .Params.doodle_mobile }}"
+      alt="My pencil doodle"
+      srcset=" {{ .RelPermalink }}{{ .Params.doodle_mobile }} 320w,
+        {{ .RelPermalink }}{{ .Params.doodle }} 640w"
+      sizes="(max-width: 640px) 320px, 50vw">
+  </section>
+</a>
+{{ end }}
+</div>
+{{ end }}
