@@ -10,6 +10,21 @@ After yesterday's excitement about opening day, we are already in a situation wh
 
 Focusing in on Ohtani's performance makes the game sound underwhelming, but the Dodgers earned another win. Advertisements during the game mostly felt like a method for Apple to remind people that they have shows available to stream. I did not see commercials for any fast food restaurants. Cameras focusing in on the snack bars between one of the innings was the closest we got to food on the screen. We were saved from watching Carl's Jr. commercials.
 
+## The Breakdown
+
+### Apple TV+
+
+| Restaurant | Commercials | Banners |
+| ---------- | :-----------: | :-------: |
+|Carl's Jr. | 0 | 0 |
+
+### Total
+
+| Restaurant | Commercials | Banners |
+| ---------- | :-----------: | :-------: |
+|Carl's Jr. | 2 | 0 |
+|Jack in the Box | 2 | 2 |
+
 ## The Logs
 
 There isn't much to say, but if you want to [read the thread](https://cheddarcrackers.club/@baseballfastfoodcommercials/112182219346131130), there is one. 

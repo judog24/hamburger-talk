@@ -2,12 +2,22 @@
 <div class="posts">
 {{ range where $.Site.RegularPages "Section" "posts" }}
 
-<a class="postLink" href="{{ .RelPermalink }}">
- <h2>{{ .Title }}</h2>
- <h3>{{ .Date | time.Format ":date_long" }}</h3>
-</a>
+  <div class="post">
 
-{{ .Content }}
+    <a class="postLink" href="{{ .RelPermalink }}">
+      <h2>{{ .Title }}</h2>
+      <h3>{{ .Date | time.Format ":date_long" }}</h3>
+    </a>
+
+{{ $breakdown := split .Content "h2>" }}
+{{ $section_data := index $breakdown 1 }}
+
+
+{{ $tables := split $section_data "<h2" }}
+{{ $tables_all := index $tables 0 | safe.HTML }}
+
+{{ $tables_all }}
+  </div>
 {{ end }}
 </div>
 {{ end }}
