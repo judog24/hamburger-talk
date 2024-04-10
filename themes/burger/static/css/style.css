@@ -60,7 +60,29 @@ table, th, td {
   border: 1px solid #000;
 }
 
-@media only screen and (min-width: 640px) {
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  
+.post-card {
+  border: 1px solid #000;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.post-card__body {
+  font-size: 1rem;
+}
+
+.post-card__ad-count {
+  font-size: 3rem;
+}
+
+@media only screen and (min-width: 640px) {
+  .post-card {
+    width: 30%;
+    margin: 0;
+  }
 }

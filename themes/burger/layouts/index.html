@@ -1,22 +1,57 @@
 {{ define "main" }}
+<div class="post-current">
+  {{ range first 1 (where $.Site.RegularPages "Section" "posts") }}
+  <a class="postLink" href="{{ .RelPermalink }}">
+        <h2>{{ .Title }}</h2>
+        <h3>{{ .Date | time.Format ":date_long" }}</h3>
+  </a>
+  {{ .Content }}
+  {{ end }}
+</div>
+
 <div class="posts">
-{{ range where $.Site.RegularPages "Section" "posts" }}
+{{ range after 1 (where $.Site.RegularPages "Section" "posts") }}
 
-  <div class="post">
+  <div class="post-card">
+    <div class="post-card__header">
+      <a class="postLink" href="{{ .RelPermalink }}">
+        <h2>{{ .Title }}</h2>
+        <h3>{{ .Date | time.Format ":date_long" }}</h3>
+      </a>
+    </div>
 
-    <a class="postLink" href="{{ .RelPermalink }}">
-      <h2>{{ .Title }}</h2>
-      <h3>{{ .Date | time.Format ":date_long" }}</h3>
-    </a>
-
-{{ $breakdown := split .Content "h2>" }}
-{{ $section_data := index $breakdown 1 }}
+    <div class="post-card__body">
+      {{ $breakdown := split .Content "h2>" }}
+      {{ $section_data := index $breakdown 1 }}
 
 
-{{ $tables := split $section_data "<h2" }}
-{{ $tables_all := index $tables 0 | safe.HTML }}
+      {{ $tables := split $section_data "<h2" }}
+      {{ $tables_all := index $tables 0 | safe.HTML }}
 
-{{ $tables_all }}
+      {{ $section_lines := split $tables_all "\n" }}
+
+      {{ $ads := 0 }}
+
+      {{ range $index, $line := $section_lines }}
+        
+
+        {{ if strings.Contains $line "total" }}
+          {{ break }}
+        {{ end }}
+
+        {{ if strings.Contains $line "<td style"}}
+          {{ $td := split $line "<td style=\"text-align:center\">" }}
+          {{ $td_rest := index $td 1 }}
+          {{ $row_data := split $td_rest "<" }}
+          {{ $restaurant_ads := index $row_data 0 | int }}
+          {{ $ads = add $ads $restaurant_ads }}
+        {{ end }}
+      {{ end }}
+      <div class="post-card__ad-count">
+        {{ $ads }}
+      </div>
+      <p>commercials watched</p>
+    </div>
   </div>
 {{ end }}
 </div>
