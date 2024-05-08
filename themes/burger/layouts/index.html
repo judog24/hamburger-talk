@@ -1,6 +1,9 @@
 {{ define "main" }}
+
+{{ $commercials := site.GetPage "posts/mlb-commercials" }}
+
 <div class="post-current">
-  {{ range first 1 (where $.Site.RegularPages "Section" "posts") }}
+  {{ range first 1 ($commercials.RegularPages) }}
   <a class="postLink" href="{{ .RelPermalink }}">
         <h2>{{ .Title }}</h2>
         <h3>{{ .Date | time.Format ":date_long" }}</h3>
@@ -10,7 +13,7 @@
 </div>
 
 <div class="posts">
-{{ range after 1 (where $.Site.RegularPages "Section" "posts") }}
+{{ range after 1 ($commercials.RegularPages) }}
 
   <div class="post-card">
     <div class="post-card__header">
